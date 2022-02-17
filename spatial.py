@@ -62,7 +62,7 @@ def features(p_id):
             y_utility=list(subset['x_coord'])
             length=[]
             for k in range(len(geom)):
-                length.append(subset.iloc[0,:].distance(building,align=False))
+                length.append(geom[k].distance(building['geometry'],align=False))
             l=round(np.array(length).min()/1000,2)
             ind=length.index(np.array(length).min())
             layers_to_map.append({'layer':layer,'x':x_utility[ind],'y':y_utility[ind],'name':names[ind]})
