@@ -59,7 +59,7 @@ def features(p_id):
             names=list(subset['name'])
             x_utility=list(subset['y_coord'])
             y_utility=list(subset['x_coord'])
-            length=list(subset['geometry'].distance(building['geometry']))
+            length=list(subset['geometry'].distance(building['geometry'],align=False))
             l=round(np.array(length).min()/1000,2)
             #ind=length.index(np.array(length).min())
             layers_to_map.append({'layer':layer,'x':x_utility[0],'y':y_utility[0],'name':names[0]})
