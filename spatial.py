@@ -57,7 +57,7 @@ def features(p_id):
         else:
             building=geo.to_crs('EPSG:21037')
             names=list(subset['name'])
-            geom=list(subset['geom'])
+            geom=list(subset['geometry'])
             x_utility=list(subset['y_coord'])
             y_utility=list(subset['x_coord'])
             length=[]
