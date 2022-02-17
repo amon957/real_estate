@@ -92,7 +92,7 @@ def features(p_id):
             x_utility=list(subset['y_coord'])
             y_utility=list(subset['x_coord'])
             xorig,yorig,xdest,ydest=origin_destination(geo['geometry'],subset)
-            graph=ox.graph.graph_from_polygon('shp/nairobi_county.shp', network_type='drive')
+            graph=ox.graph.graph_from_polygon(gp.read_file('shp/nairobi_county.shp'), network_type='drive')
             orig=ox.distance.nearest_nodes(graph,xorig,yorig)
             dest=ox.distance.nearest_nodes(graph,xdest,ydest)
             l,ind=nearest_amenity_dist(graph,orig,dest)
