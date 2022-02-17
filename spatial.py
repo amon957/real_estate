@@ -125,7 +125,7 @@ def features(p_id):
     other_properties=other_properties.drop(['geometry'],axis='columns', inplace=True)
     
     st.subheader(np.array(geo['Name'])[0])
-    c1,c2=st.columns((2,1))
+    c1,c2=st.beta_columns((2,1))
     with c1:
         folium_static(m)
     with c2:
