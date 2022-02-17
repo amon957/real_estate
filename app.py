@@ -34,7 +34,7 @@ nav=menu_id
 if nav=='Home':
     home()
 elif nav=='Property Features':
-    st.text('NB: Location Features takes Appx: 1.5 Minutes')
+    st.text('Enter Id between 1 & 1000\nMore Sophisticated way of searching still under construction!!!')
     p_id=st.text_input("Enter Property Id")
     c1,c2=st.columns((1,1))
     loc_f=c1.checkbox('Location Features (Distance to Utilities)')
