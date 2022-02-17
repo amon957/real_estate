@@ -17,6 +17,8 @@ st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 </style> """, unsafe_allow_html=True)
+
+st.set_page_config(page_title=’property for sale’)
 menu_data = [
     {'label':"Filter Properties"},
     {'label':"Price distribution"},#no tooltip message
