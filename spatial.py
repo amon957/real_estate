@@ -64,7 +64,7 @@ def features(p_id):
             #ind=length.index(np.array(length).min())
             layers_to_map.append({'layer':layer,'x':x_utility[0],'y':y_utility[0],'name':names[0]})
             facility_type.append(facility_type_names[layer])
-            facility_name.append(names[ind])
+            facility_name.append(names[0])
             minimum_dist.append(str(l)+' KM')
     
     school = folium.FeatureGroup(name='Nearest School')
