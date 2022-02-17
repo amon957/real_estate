@@ -57,9 +57,12 @@ def features(p_id):
         else:
             building=geo.to_crs('EPSG:21037')
             names=list(subset['name'])
+            geom=list(subset['geom'])
             x_utility=list(subset['y_coord'])
             y_utility=list(subset['x_coord'])
-            length=list(subset.distance(building,align=False))
+            length=[]
+            for k in range(len(geom)):
+                length.append(geom[k].distance(building,align=False))
             l=round(np.array(length).min()/1000,2)
             ind=length.index(np.array(length).min())
             layers_to_map.append({'layer':layer,'x':x_utility[ind],'y':y_utility[ind],'name':names[ind]})
