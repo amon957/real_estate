@@ -12,8 +12,11 @@ from home import home
 from spatial import features
 from hydralit_components import HyLoader, Loaders
 import time
-st.set_page_config(layout='wide',initial_sidebar_state='auto',)
-
+st.set_page_config(layout='wide',initial_sidebar_state='auto')
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
 menu_data = [
     {'label':"Filter Properties"},
     {'label':"Price distribution"},#no tooltip message
