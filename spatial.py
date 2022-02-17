@@ -31,38 +31,6 @@ def search_amenity_within(building,amenity_type,dist):
             subset=pd.DataFrame()
             len_df=1
     return(subset)
-def origin_destination(building,subset):
-    xdest=list(subset['x_coord'])
-    ydest=list(subset['y_coord'])
-    xorig=[]
-    yorig=[]
-    for i in range(len(xdest)):
-        xorig.append(np.array(building.x).tolist()[0])
-        yorig.append(np.array(building.y).tolist()[0])
-    return(xorig,yorig,xdest,ydest)
-def nearest_amenity_dist(graph,orig,dest):
-    route_nodes=ox.distance.shortest_path(graph,orig,dest)
-    length=[]
-    if type(route_nodes)==list:
-        for feature in route_nodes:
-            route_coord=[]
-            for n_id in feature:
-                route_coord.append((graph.nodes[n_id]['y'],graph.nodes[n_id]['x']))
-            line=LineString(route_coord)
-            route=gp.GeoSeries(line,crs='EPSG:4326')
-            route=route.to_crs('EPSG:21037')
-            dist=route.length[0]
-            length.append(dist)
-    else:
-        route_coord=[]
-        for n_id in route_nodes:
-            route_coord.append((graph.nodes[n_id]['y'],graph.nodes[n_id]['x']))
-        line=LineString(route_coord)
-        route=gp.GeoSeries(line,crs='EPSG:4326')
-        route=route.to_crs('EPSG:21037')
-        dist=route.length[0]
-        length.append(dist)
-    return(round(np.array(length).min()/1000,2),length.index(np.array(length).min()))
 def features(p_id):
     houses=gp.read_file('shp/buildings.shp')
     geo=houses[houses['b_id']==p_id]
@@ -88,10 +56,9 @@ def features(p_id):
             minimum_dist.append('More than 4 KM Away')
         else:
             names=list(subset['name'])
-            geom=list(subset['geometry'])
             x_utility=list(subset['y_coord'])
             y_utility=list(subset['x_coord'])
-            length=list(geom.distance(geo))
+            length=list(subset.distance(geo))
             l=round(np.array(length).min()/1000,2)
             ind=length.index(np.array(length).min())
             layers_to_map.append({'layer':layer,'x':x_utility[ind],'y':y_utility[ind],'name':names[k]})
