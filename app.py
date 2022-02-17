@@ -41,7 +41,7 @@ if nav=='Home':
 elif nav=='Property Features':
     st.text('Enter Id between 1 & 1000\nMore Sophisticated way of searching still under construction!!!')
     p_id=st.text_input("Enter Property Id")
-    c1,c2=st.columns((1,1))
+    c1,c2=st.beta_columns((1,1))
     loc_f=c1.checkbox('Location Features (Distance to Utilities)')
     build_f=c2.checkbox('Building Features')
     if st.button('Submit'):
