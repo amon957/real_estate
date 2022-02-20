@@ -92,7 +92,7 @@ def features():
                     pharmacy = folium.FeatureGroup(name='Nearest Pharmacy')
                     hospital = folium.FeatureGroup(name='Nearest Hospital')
                     house = folium.FeatureGroup(name='Property for Sale')
-                    fig=branca.element.Figure(width="50%",height="100%")
+                    fig=branca.element.Figure(height="100%")
                     m=folium.Map(location=[np.array(geo['lat'])[0],np.array(geo['lon'])[0]],zoom_start=14)
                     folium.TileLayer(
                         tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
