@@ -19,7 +19,6 @@ footer {visibility: hidden;}
 </style> """, unsafe_allow_html=True)
 
 menu_data = [
-    {'label':"Filter Properties"},
     {'label':"Price distribution"},#no tooltip message
     {'label':"Property Features"},
     {'label':"Price Estimation Model",'ttip':"Estimate price in certain Location"} #can add a tooltip message
@@ -36,7 +35,8 @@ menu_id=hc.nav_bar(
 )
 nav=menu_id
 if nav=='Home':
-    home()
+    data=gp.read_file('shp/buildings.shp')
+    home(data)
 elif nav=='Property Features':
     st.text('Enter Id between 1 & 1000\nMore Sophisticated way of searching still under construction!!!')
     p_id=st.text_input("Enter Property Id")
