@@ -9,4 +9,3 @@ folium
 hydralit_components
 matplotlib
 seaborn
-branca
