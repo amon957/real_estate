@@ -15,7 +15,7 @@ import pandas as pd
 def home(data):
     c1,c2,c3=st.columns((1,2,1))
     with c1:
-        st.subheader("Filter Section")
+        st.subheader("Filter")
         reg_list=['All']
         reg=np.array(data['Region'])
         for r in reg:
@@ -51,7 +51,7 @@ def home(data):
             r='Nairobi'
         else:
             r=region
-        st.subheader(str(len(data))+' Houses are available for sale in '+r)
+        st.subheader(str(len(data))+' House(s) are available for sale in '+r)
         st.map(data)
     with c3:
         st.subheader("Statistics")
