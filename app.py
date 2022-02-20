@@ -12,6 +12,8 @@ from home import home
 from spatial import features
 from hydralit_components import HyLoader, Loaders
 import time
+import geopandas as gp
+
 st.set_page_config(page_title='property-for-sale',layout='wide',initial_sidebar_state='auto')
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
