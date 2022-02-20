@@ -46,7 +46,7 @@ def features():
             with HyLoader("Loading Property Id {}".format(p_id),loader_name=loader,index=[3,0,5]):
                     time.sleep(int(delay))
                     houses=gp.read_file('shp/buildings.shp')
-                    geo=houses[houses['b_id']==p_id]
+                    geo=houses[houses['b_id']==int(p_id)]
 
                     layers={'fuel':'shp/fuel.shp','hos':'shp/hospital.shp','malls':'shp/malls.shp','pharm':'shp/pharmacy.shp',
                         'church':'shp/place_of_worship.shp','police':'shp/police.shp','school':'shp/school.shp'}
