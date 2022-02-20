@@ -10,8 +10,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-import geopandas as gp
-from numpy import mean
+
 
 def home(data):
     c1,c2,c3=st.columns((1,2,1))
