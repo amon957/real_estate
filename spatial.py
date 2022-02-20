@@ -36,7 +36,7 @@ def search_amenity_within(building,amenity_type,dist):
 def features():
     c1,c2=st.columns((2,1))
     with c1:
-        st.text('Enter Id between 1 & 1000\nMore Sophisticated way of searching still under construction!!!')
+        st.text('Enter Id between 1 & 1000')
         p_id=st.text_input("Enter Property Id")
         loc_f=st.checkbox('Location Features (Distance to Utilities)')
         build_f=st.checkbox('Building Features')
