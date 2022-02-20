@@ -35,7 +35,7 @@ def search_amenity_within(building,amenity_type,dist):
             len_df=1
     return(subset)
 def features():
-    c1,c2=st.columns((2,1))
+    c1,c2,c3=st.columns((1,2,1))
     with c1:
         st.text('Enter Id between 1 & 1000')
         p_id=st.text_input("Enter Property Id")
@@ -140,10 +140,10 @@ def features():
                     other_properties=geo.dropna(axis=1,how='all')
                     other_properties=other_properties.drop(['geometry'],axis='columns', inplace=True)
     
-                    with c1:
-                        st.subheader(np.array(geo['Name'])[0])
-                        folium_static(m)
                     with c2:
+                        st.subheader(np.array(geo['Name'])[0])
+                        folium_static(fig)
+                    with c3:
                         st.dataframe(loc_properties)
                         st.text('Building Features')
                         st.dataframe(other_properties)
