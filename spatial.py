@@ -15,7 +15,6 @@ from streamlit_folium import folium_static
 import folium
 from hydralit_components import HyLoader, Loaders
 import time
-import branca
 
 
 def search_amenity_within(building,amenity_type,dist):
@@ -92,7 +91,7 @@ def features():
                     pharmacy = folium.FeatureGroup(name='Nearest Pharmacy')
                     hospital = folium.FeatureGroup(name='Nearest Hospital')
                     house = folium.FeatureGroup(name='Property for Sale')
-                    fig=branca.element.Figure(height="100%",width="100%")
+                  
                     m=folium.Map(location=[np.array(geo['lat'])[0],np.array(geo['lon'])[0]],zoom_start=14)
                     folium.TileLayer(
                         tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -142,7 +141,7 @@ def features():
     
                     with c2:
                         st.subheader(np.array(geo['Name'])[0])
-                        folium_static(fig)
+                        folium_static(m)
                     with c3:
                         st.dataframe(loc_properties)
                         st.text('Building Features')
