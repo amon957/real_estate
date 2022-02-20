@@ -40,14 +40,4 @@ if nav=='Home':
     data=gp.read_file('shp/buildings.shp')
     home(data)
 elif nav=='Property Features':
-    st.text('Enter Id between 1 & 1000\nMore Sophisticated way of searching still under construction!!!')
-    p_id=st.text_input("Enter Property Id")
-    c1,c2=st.columns((1,1))
-    loc_f=c1.checkbox('Location Features (Distance to Utilities)')
-    build_f=c2.checkbox('Building Features')
-    if st.button('Submit'):
-        loader=Loaders.standard_loaders
-        delay=0
-        with HyLoader("Loading Property Id {}".format(p_id),loader_name=loader,index=[3,0,5]):
-                    time.sleep(int(delay))
-                    features(int(p_id))
+    features()
