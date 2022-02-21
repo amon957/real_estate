@@ -146,6 +146,7 @@ def features():
                                 continue
                         other_properties=other_properties.T
                         other_properties.columns=['Avalilability']
+                        other_properties=other_properties.astype(str)
     
                         st.subheader(np.array(geo['Name'])[0])
                         folium_static(m)
