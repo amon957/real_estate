@@ -140,10 +140,10 @@ def features():
                         other_properties=geo.dropna(axis=1,how='all')
                         drop_columns=['lon','lat','b_id','Name','School','Hospital','Bus Stop','geometry']
                         for d in drop_columns:
-                        try:
-                            other_properties=other_properties.drop([d],axis=1)
-                        except KeyError:
-                            continue
+                            try:
+                                other_properties=other_properties.drop([d],axis=1)
+                            except KeyError:
+                                continue
                         other_properties=other_properties.T
                         other_properties.columns=['Avalilability']
     
