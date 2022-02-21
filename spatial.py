@@ -138,7 +138,14 @@ def features():
                         loc_properties=properties.set_index('SNo.',drop=True)
     
                         other_properties=geo.dropna(axis=1,how='all')
-                        other_properties=other_properties.drop(['geometry'],axis='columns', inplace=True)
+                        drop_columns=['lon','lat','b_id','Name','School','Hospital','Bus Stop','geometry']
+                        for d in drop_columns:
+                        try:
+                            other_properties=other_properties.drop([d],axis=1)
+                        except KeyError:
+                            continue
+                        other_properties=other_properties.T
+                        other_properties.columns=['Avalilability']
     
                         st.subheader(np.array(geo['Name'])[0])
                         folium_static(m)
