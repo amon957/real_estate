@@ -38,8 +38,6 @@ def features():
     with c1:
         st.text('Enter Id between 1 & 1000')
         p_id=st.text_input("Enter Property Id")
-        loc_f=st.checkbox('Location Features (Distance to Utilities)')
-        build_f=st.checkbox('Building Features')
         if st.button('Submit'):
             with c2:
                 loader=Loaders.standard_loaders
