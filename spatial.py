@@ -153,5 +153,5 @@ def features():
                         with c3:
                             st.markdown('**Location Features**')
                             st.dataframe(loc_properties)
-                            st.markdown('**Property Features**')
+                            st.markdown('**Property Features & Price**')
                             st.dataframe(other_properties)
