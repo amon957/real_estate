@@ -37,8 +37,7 @@ if nav=='Home':
     data=gp.read_file('shp/buildings.shp')
     home(data)
 elif nav=='Property Features':
-    st.text('NB: Location Features takes Appx: 1.5 Minutes')
-    p_id=st.text_input("Enter Property Id")
+    st.subheader('Search for Property Features')
     c1,c2=st.columns((1,1))
     loc_f=c1.checkbox('Location Features (Distance to Utilities)')
     build_f=c2.checkbox('Building Features')
@@ -47,6 +46,6 @@ elif nav=='Property Features':
         delay=0
         with HyLoader("Loading Property Id {}".format(p_id),loader_name=loader,index=[3,0,5]):
                     time.sleep(int(delay))
-                    features(int(p_id))
+                    features()
 elif nav=='Estimate Price':
     main_page()
