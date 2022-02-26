@@ -33,16 +33,14 @@ def search_amenity_within(building,amenity_type,dist):
             subset=pd.DataFrame()
             len_df=1
     return(subset)
-def features():
+def features(b_id):
     c1,c2,c3=st.columns((1,2,1))
     with c1:
-        st.text('Enter Id between 1 & 1000')
-        p_id=st.text_input("Enter Property Id")
         if st.button('Submit'):
             with c2:
                 loader=Loaders.standard_loaders
                 delay=0
-                with HyLoader("Loading Property Id {}".format(p_id),loader_name=loader,index=[3,0,5]):
+                with HyLoader("Loading Property Features",loader_name=loader,index=[3,0,5]):
                         time.sleep(int(delay))
                         houses=gp.read_file('shp/buildings.shp')
                         geo=houses[houses['b_id']==int(p_id)]
