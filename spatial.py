@@ -33,17 +33,26 @@ def search_amenity_within(building,amenity_type,dist):
             subset=pd.DataFrame()
             len_df=1
     return(subset)
-def features(name):
+def features():
+    houses=gp.read_file('shp/buildings.shp')
     c1,c2,c3=st.columns((1,2,1))
-    with c1:
+    regions=list(houses.Region.unique())
+    with st.container():
+        cc1,cc2,cc3=st.columns((1,1,1))
+        reg=cc1.selectbox('Region',regions.sort())
+        new_data=houses[houses['Region']==reg]
+        bed=list(new_data.bedrooms.unique())
+        bed_rooms=cc2.selectbox('Bedrooms',bed.sort())
+        final_data=new_data[new_data['bedrooms']==bed_rooms]
+        names=list(final_data['Name'])
+        name=cc3.selectbox('Name',names.sort())
         if st.button('Submit'):
             with c2:
                 loader=Loaders.standard_loaders
                 delay=0
                 with HyLoader("Loading Property Features",loader_name=loader,index=[3,0,5]):
                         time.sleep(int(delay))
-                        houses=gp.read_file('shp/buildings.shp')
-                        geo=houses[houses['b_id']==int(p_id)]
+                        geo=houses[houses['Name']==name]
 
                         layers={'fuel':'shp/fuel.shp','hos':'shp/hospital.shp','malls':'shp/malls.shp','pharm':'shp/pharmacy.shp',
                             'church':'shp/place_of_worship.shp','police':'shp/police.shp','school':'shp/school.shp'}
