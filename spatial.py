@@ -43,9 +43,11 @@ def features():
         reg=cc1.selectbox('Region',regions)
         new_data=houses[houses['Region']==reg]
         bed=list(new_data.bedrooms.unique())
+        bed.sort()
         bed_rooms=cc2.selectbox('Bedrooms',bed)
         final_data=new_data[new_data['bedrooms']==bed_rooms]
         names=list(final_data['Name'])
+        names.sort()
         name=cc3.selectbox('Name',names)
         if st.button('Submit'):
             with c2:
