@@ -9,3 +9,4 @@ folium
 hydralit_components
 matplotlib
 seaborn
+sklearn
