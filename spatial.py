@@ -33,7 +33,7 @@ def search_amenity_within(building,amenity_type,dist):
             subset=pd.DataFrame()
             len_df=1
     return(subset)
-def features(b_id):
+def features(name):
     c1,c2,c3=st.columns((1,2,1))
     with c1:
         if st.button('Submit'):
