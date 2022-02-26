@@ -60,5 +60,5 @@ def main_page():
                 mean_v=int(model_v)-v
             #st.subheader('Highest Price: Ksh '+str(int(mean_v*1.125)))
             #st.subheader('Lowest Price: Ksh '+str(int(mean_v*0.875)))
-            st.metric(label="Estimated Price", value='Highest: Ksh '+str(int(mean_v*1.125)),
+            st.metric(label="Estimated Price", value='Ksh '+str(int(mean_v*1.125)),
                       delta='Lowest: Ksh '+str(int(mean_v*0.875)))
