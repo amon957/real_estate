@@ -33,21 +33,26 @@ menu_id=hc.nav_bar(
     sticky_mode='pinned', #jumpy or not-jumpy, but sticky or pinned
 )
 nav=menu_id
+data=gp.read_file('shp/buildings.shp')
 if nav=='Home':
-    data=gp.read_file('shp/buildings.shp')
     home(data)
 elif nav=='Property Features':
     st.subheader('Search for Property Features')
+    regions=list(data.Region.unique())
     with st.container():
         c1,c2,c3=st.columns((1,1,1))
-        reg=c1.selectbox('Region',[1,2])
-        bed_rooms=c2.selectbox('Bedrooms',[1,2])
-        name=c3.selectbox('Name',[1,2])
+        reg=c1.selectbox('Region',regions)
+        new_data=data[data['Region']==reg]
+        bed=list(new_data.bedrooms.unique())
+        bed_rooms=c2.selectbox('Bedrooms',bed)
+        final_data=new_data[new_data['bedrooms']==bed_rooms]
+        names=list(final_data['Name'])
+        name=c3.selectbox('Name',names)
     if st.button('Submit'):
         loader=Loaders.standard_loaders
         delay=0
-        with HyLoader("Loading Property Id {}".format(p_id),loader_name=loader,index=[3,0,5]):
+        with HyLoader("Loading Property Features",loader_name=loader,index=[3,0,5]):
                     time.sleep(int(delay))
-                    features()
+                    features(geo)
 elif nav=='Estimate Price':
     main_page()
