@@ -38,9 +38,11 @@ if nav=='Home':
     home(data)
 elif nav=='Property Features':
     st.subheader('Search for Property Features')
-    c1,c2=st.columns((1,1))
-    loc_f=c1.checkbox('Location Features (Distance to Utilities)')
-    build_f=c2.checkbox('Building Features')
+    with st.container():
+        c1,c2,c3=st.columns((1,1,1))
+        reg=c1.selectbox('Region',[1,2])
+        bed_rooms=c2.selectbox('Bedrooms',[1,2])
+        name=c3.selectbox('Name',[1,2])
     if st.button('Submit'):
         loader=Loaders.standard_loaders
         delay=0
