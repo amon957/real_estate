@@ -27,13 +27,11 @@ def multiple_model(data,bedrooms):
     target_name ="Price"
     target=data[target_name]
     data=data.drop(columns=[target_name])
-    data_train, data_test, target_train, target_test =train_test_split(
-    data,target,random_state=42)
     model = linear_model.LinearRegression()
-    model.fit(data_train,target_train)
+    model.fit(data,target)
     
     bedroom_list=[]
-    for b in range(10):
+    for b in range(9):
         bedroom_list.append(0)
     bedroom_list[int(bedrooms)-1]=1
     features=other_data+bedroom_list
