@@ -40,16 +40,15 @@ def features():
     regions.sort()
     with c1:
         with st.container():
-            cc1,cc2,cc3=st.columns((1,1,1))
-            reg=cc1.selectbox('Region',regions)
+            reg=st.selectbox('Region',regions)
             new_data=houses[houses['Region']==reg]
             bed=list(new_data.bedrooms.unique())
             bed.sort()
-            bed_rooms=cc2.selectbox('Bedrooms',bed)
+            bed_rooms=st.selectbox('Bedrooms',bed)
             final_data=new_data[new_data['bedrooms']==bed_rooms]
             names=list(final_data['Name'])
             names.sort()
-            name=cc3.selectbox('Name',names)
+            name=st.selectbox('Name',names)
         if st.button('Submit'):
             with c2:
                 loader=Loaders.standard_loaders
