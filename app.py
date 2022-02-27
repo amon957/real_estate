@@ -16,6 +16,12 @@ import time
 import geopandas as gp
 
 st.set_page_config(layout='wide',initial_sidebar_state='auto',)
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 menu_data = [
     {'label':"Price distribution"},#no tooltip message
