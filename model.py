@@ -33,7 +33,7 @@ def multiple_model(data,bedrooms):
     bedroom_list=[]
     for b in range(9):
         bedroom_list.append(0)
-    bedroom_list[int(bedrooms)-1]=1
+    bedroom_list[int(bedrooms)-2]=1
     features=other_data+bedroom_list
     x_pred=np.array(features).reshape(1,len(features))
     y_pred=model.predict(x_pred)
