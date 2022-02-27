@@ -38,17 +38,18 @@ def features():
     c1,c2,c3=st.columns((1,2,1))
     regions=list(houses.Region.unique())
     regions.sort()
-    with st.container():
-        cc1,cc2,cc3=st.columns((1,1,1))
-        reg=cc1.selectbox('Region',regions)
-        new_data=houses[houses['Region']==reg]
-        bed=list(new_data.bedrooms.unique())
-        bed.sort()
-        bed_rooms=cc2.selectbox('Bedrooms',bed)
-        final_data=new_data[new_data['bedrooms']==bed_rooms]
-        names=list(final_data['Name'])
-        names.sort()
-        name=cc3.selectbox('Name',names)
+    with c1:
+        with st.container():
+            cc1,cc2,cc3=st.columns((1,1,1))
+            reg=cc1.selectbox('Region',regions)
+            new_data=houses[houses['Region']==reg]
+            bed=list(new_data.bedrooms.unique())
+            bed.sort()
+            bed_rooms=cc2.selectbox('Bedrooms',bed)
+            final_data=new_data[new_data['bedrooms']==bed_rooms]
+            names=list(final_data['Name'])
+            names.sort()
+            name=cc3.selectbox('Name',names)
         if st.button('Submit'):
             with c2:
                 loader=Loaders.standard_loaders
