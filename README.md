@@ -1,5 +1,5 @@
 # Spatial Tool for Property Search in Nairobi, Kenya
-
+[For Demo Visit Here](https://share.streamlit.io/amon957/real_estate/app.py)
 ## Project Summary
 - Web Scraping using baeutifulsoup
 - OSM data download using osmnx
@@ -58,12 +58,20 @@ graph TD;
 ### 1. Filter Module
 This module allows the user to view properties within a specif region of interest. The module displays statistics based on the number of bedrooms of each available house in a bar chart. The same properties are displayed on a map.
 
+![Filter Properties](images/Module1.PNG)
+
 ### 2. Property Features Module
 This module is more specific to individual property. It involves filtering a specific property within a specific region. There are two output in this module;
 - Attributes within the property e.g the number of bedrooms, availability of alarm, generator, parking bay e.t.c.
+![Amenities within the property](images/Module2_Non_spatial.PNG)
 - Distance to the nearest utilities e.g how far is the nearest shopping mall, school, Gas station, hospital e.t.c.
+![Distance to Amnities](images/Module2_Dist.PNG)
 
 These data might be useful for someone who wants to purchase the property, especiallly data related with the spatial location of commonly needed utilities.
 
+![Map Visualization](images/Module2_Map.PNG)
 ### 3. Price Estimation Module
 This is a machine learning module whereby the user provides features of the property he/she would like to purchase, then the program predicts price range of the property based on those features.
+![Price Estimation](images/Module3.PNG)
+
+[For Demo Visit Here](https://share.streamlit.io/amon957/real_estate/app.py)
